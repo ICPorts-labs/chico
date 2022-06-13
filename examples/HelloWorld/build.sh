@@ -8,6 +8,8 @@ echo ${CHICO_PATH}
 SYSROOT=${WASI_SDK_PATH}/share/wasi-sysroot
 WASI_LIBC=${SYSROOT}/lib/wasm32-wasi/libc.a
 
+echo "SYSROOT PATH IS:"
+echo ${SYSROOT}
 
 clang -c ${CHICO_PATH}/chico.c -o chico.o \
       -I ${CHICO_PATH} \
