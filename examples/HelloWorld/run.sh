@@ -13,8 +13,11 @@ dfx canister create helloworld
 
 dfx build 
 dfx deploy
+
+echo "Canister deployed"
+
 cp ../helloworld.wasm .dfx/local/canisters/helloworld/helloworld.wasm
-dfx canister install -m reinstall helloworld
+yes | dfx canister install -m reinstall helloworld
 dfx canister call helloworld greet "ICP Fan"#!/bin/bash
 
-
+echo "The end!"
