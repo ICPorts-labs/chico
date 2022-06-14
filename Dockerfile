@@ -87,4 +87,4 @@ RUN bash build.sh
 #
 
 EXPOSE 8000
-CMD run.sh
+CMD ["bash", "run.sh"]
