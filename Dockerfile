@@ -55,13 +55,36 @@ RUN tar xvf wasi-sdk-${WASI_VERSION_FULL}-linux.tar.gz
 # set SDK env var 
 #
 
-ENV WASI_SDK_PATH "/wasi-sdk-${WASI_VERSION_FULL}-linu"
+ENV WASI_SDK_PATH "/wasi-sdk-${WASI_VERSION_FULL}"
 RUN echo $WASI_SDK_PATH
 
 #
 # Download chico and set working directory to chico
 #
-
+RUN clang --version -v
 RUN git clone https://github.com/ICPorts-labs/chico.git
 WORKDIR chico
-ENV CHICO_PATH "/chico"
+ENV CHICO_PATH "/chico/src"
+
+
+#################
+#
+#
+# This concludes downloading everything you need to start building C/C++ canisters
+# Bellow is a simple HelloWorld example
+#
+################
+
+#
+# Build the HelloWorld example
+#
+
+WORKDIR examples/HelloWorld
+RUN bash build.sh
+
+#
+# Build and run dfx/canister
+#
+
+EXPOSE 8000
+CMD run.sh
