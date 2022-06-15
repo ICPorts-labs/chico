@@ -86,5 +86,6 @@ RUN bash build.sh
 # Build and run dfx/canister
 #
 
+RUN chmod u+x run.sh
 EXPOSE 8000
-CMD ["bash", "run.sh"]
+ENTRYPOINT ["/chico/examples/HelloWorld/run.sh"]
