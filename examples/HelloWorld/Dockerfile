@@ -71,6 +71,21 @@ ENV CHICO_PATH "/chico/src"
 #
 #
 # This concludes downloading everything you need to start building C/C++ canisters
-# See the examples folder for how to use this Dockerfile for developping C/C++ canisters
+# Bellow is a simple HelloWorld example
 #
 ################
+
+#
+# Build the HelloWorld example
+#
+
+WORKDIR examples/HelloWorld
+RUN bash build.sh
+
+#
+# Build and run dfx/canister
+#
+
+RUN chmod u+x run.sh
+EXPOSE 8000
+ENTRYPOINT ["/chico/examples/HelloWorld/run.sh"]
