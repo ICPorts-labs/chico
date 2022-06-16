@@ -8,12 +8,17 @@ dfx start --background
 # create the sqlite canister
 dfx canister create sqlite
 
+dfx build 
+dfx deploy
+
+echo "Canister deployed"
+
 # copy the sqlite.wasm and sqlite.did files
 cp ../sqlite.wasm .dfx/local/canisters/sqlite/
 cp ../sqlite.did  .dfx/local/canisters/sqlite/
 
 # install canister
-dfx canister install sqlite
+yes yes | dfx canister install -m reinstall sqlite
 
 # initialize DB
 dfx canister call sqlite sqlite_init
