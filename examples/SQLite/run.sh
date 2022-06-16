@@ -6,8 +6,8 @@ cd sqlite
 dfx canister create sqlite
 
 # copy the sqlite.wasm and sqlite.did files
-cp sqlite.wasm .dfx/local/canisters/sqlite/
-cp sqlite.did  .dfx/local/canisters/sqlite/
+cp ../sqlite.wasm .dfx/local/canisters/sqlite/
+cp ../sqlite.did  .dfx/local/canisters/sqlite/
 
 # install canister
 dfx canister install sqlite
