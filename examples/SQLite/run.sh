@@ -1,10 +1,8 @@
-#!/bin/sh
-
-# start local replica
-dfx start --background
+#!/bin/bash
 
 # create the sqlite project
 dfx new sqlite --no-frontend  
+cd sqlite
 dfx canister create sqlite
 
 # copy the sqlite.wasm and sqlite.did files
