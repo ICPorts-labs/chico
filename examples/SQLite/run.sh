@@ -3,6 +3,9 @@
 # create the sqlite project
 dfx new sqlite --no-frontend  
 cd sqlite
+dfx start --background 
+
+# create the sqlite canister
 dfx canister create sqlite
 
 # copy the sqlite.wasm and sqlite.did files
