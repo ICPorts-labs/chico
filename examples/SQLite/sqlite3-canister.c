@@ -140,16 +140,16 @@ void sqlite_query() {
     int rc = sqlite3_exec(db, sqlptr, write_back, query_result_buf, &messageError);
     char *queryptr = sqlite3_str_finish(query_result_buf);
     if (rc != SQLITE_OK ) {
-     write_return_text("Query Failed :(");
+     ic_writes_text("Query Failed :(");
     }
     else {
       ic_log_message("exec query is SQLITE_OK ");
-      write_return_text(queryptr);
+      ic_writes_text(queryptr);
       sqlite3_free(queryptr);
     }
   }
   else {
-    write_return_text("DB does not exist");
+    ic_writes_text("DB does not exist");
   }
   sqlite3_free(sqlptr);
 }
