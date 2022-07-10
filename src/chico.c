@@ -23,7 +23,7 @@ uint8_t IDL_TYPE_BOOL = 0x7E;
 // [IDL_MAGIC][00][01][IDL_TYPE_BOOL][00] for false
 // [IDL_MAGIC][00][01][IDL_TYPE_BOOL][01] for true
 // uint8_t IDL_TYPE_NAT = 0x7D;
-// uint8_t IDL_TYPE_int = 0x7C;
+uint8_t IDL_TYPE_int = 0x7C;
 uint8_t IDL_TYPE_NAT8 = 0x7B;
 uint8_t IDL_TYPE_NAT16 = 0x7A;
 uint8_t IDL_TYPE_NAT32 = 0x79;
@@ -209,7 +209,7 @@ void write_magic() {
 
 void write_byte(uint8_t byte) {
   ic0_msg_reply_data_append((uint32_t)(&byte), 1);
-ç}
+}
 
 void write_nat16(uint16_t  val) {
   write_byte((uint8_t)val);
