@@ -89,6 +89,116 @@ void match_magic(const uint8_t *buf, size_t len) {
 }
 
 //
+// reads
+//
+
+int8_t ic_reads_int8() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_INT8);
+  int8_t result =  (int8_t)buf[7];  
+  free(buf);
+  return result;
+}
+
+int16_t ic_reads_int16() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_INT16);
+  int16_t result =  (buf[7] | buf[8] << 8);
+  free(buf);
+  return result;
+}
+
+int32_t ic_reads_int32() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_INT32);
+  int32_t result =  (buf[7] | buf[8] << 8 | buf[9] << 16 | buf[10] << 24);
+  free(buf);
+  return result;
+}
+
+
+int64_t ic_reads_int64() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_INT64);
+  int64_t result =  (buf[7] | buf[8] << 8 | buf[9] << 16 | buf[10] << 24 | buf[11] <<32 | buf[12] << 40 | buf[13] << 48 | buf[14] << 56);
+  free(buf);
+  return result;
+}
+
+
+uint8_t ic_reads_nat8() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_INT8);
+  uint8_t result =  (uint8_t)buf[7];
+  free(buf);
+  return result;
+}
+
+uint16_t ic_reads_nat16() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_INT16);
+  uint16_t result =  (buf[7] | buf[8] << 8);
+  free(buf);
+  return result;
+}
+
+uint32_t ic_reads_nat32() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_INT32);
+  uint32_t result =  (buf[7] | buf[8] << 8 | buf[9] << 16 | buf[10] << 24);
+  free(buf);
+  return result;
+}
+
+uint64_t ic_reads_nat64() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_INT64);
+  uint64_t result =  (buf[7] | buf[8] << 8 | buf[9] << 16 | buf[10] << 24 | buf[11] <<32 | buf[12] << 40 | buf[13] << 48 | buf[14] << 56);
+  free(buf);
+  return result;
+}
+
+//
 //  Functions to write (return) data from a canister
 //
 
