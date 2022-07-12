@@ -47,6 +47,10 @@ uint8_t IDL_TYPE_PRINCIPAL = 0x68;
 // Utility functions for encoding and decoding
 //
 
+void write_byte(uint8_t byte) {
+  ic0_msg_reply_data_append((uint32_t)(&byte), 1);
+}
+
 void write_uleb128 (uint32_t x) {
   unsigned char buf[10];
   int bytes = 0;
@@ -207,10 +211,6 @@ void write_magic() {
   ic0_msg_reply_data_append((uint32_t)(IDL_MAGIC), 4);
 }
 
-void write_byte(uint8_t byte) {
-  ic0_msg_reply_data_append((uint32_t)(&byte), 1);
-}
-
 void write_nat16(uint16_t  val) {
   write_byte((uint8_t)val);
   write_byte((uint8_t)val>>8);
@@ -235,7 +235,7 @@ void write_nat64(uint64_t  val) {
 
 void write_int16(int16_t  val) {
   write_byte(val & 0xFF);
-  write_byte(val>>8) & 0xFF);
+  write_byte(val>>8 & 0xFF);
 }
 
 void write_int32(int32_t  val) {
