@@ -29,3 +29,13 @@ void ic_writes_nat8(uint8_t  val);
 void ic_writes_nat16(uint16_t  val);
 void ic_writes_nat32(uint32_t  val);
 void ic_writes_nat64(uint64_t  val);
+
+int8_t ic_reads_int8();
+int16_t ic_reads_int16();
+int32_t ic_reads_int32();
+int64_t ic_reads_int64();
+
+uint8_t ic_reads_nat8();
+uint16_t ic_reads_nat16();
+uint32_t ic_reads_nat32();
+uint64_t ic_reads_nat64();
