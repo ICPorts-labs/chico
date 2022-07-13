@@ -21,6 +21,7 @@ void test_int8() {
   int8_t val = ic_reads_int8();
   ic_log_message("value is read");
   ic_writes_int8(val);
+  ic_log_message("end of test");
 }
 
 
