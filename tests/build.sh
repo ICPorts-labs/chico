@@ -20,7 +20,7 @@ clang -c tests.c -o tests.o \
       -O3 --sysroot=${SYSROOT} --target=wasm32-wasi
 
 
-wasm-ld tests.o chico.o utils.o -o tests.wasm \
+wasm-ld tests.o chico.o -o tests.wasm \
 	--demangle --allow-undefined --export-dynamic --no-entry  \
 	${WASI_LIBC}
 
