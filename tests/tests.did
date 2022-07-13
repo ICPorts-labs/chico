@@ -3,4 +3,8 @@ service : {
   test_int16: (int16) -> (int16);
   test_int32: (int32) -> (int32);
   test_int64: (int64) -> (int64);
+  test_nat8: (nat8) -> (nat8);
+  test_nat16: (nat16) -> (nat16);
+  test_nat32: (nat32) -> (nat32);
+  test_nat64: (nat64) -> (nat64);
 }      
