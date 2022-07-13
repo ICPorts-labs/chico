@@ -34,7 +34,7 @@ uint8_t IDL_TYPE_INT32 = 0x75;
 uint8_t IDL_TYPE_INT64 = 0x74;
 uint8_t IDL_TYPE_FLOAT32 = 0x73;
 uint8_t IDL_TYPE_FLOAT64 = 0x72;
-uint8_t IDL_TYPE_text = 0x71;
+uint8_t IDL_TYPE_TEXT = 0x71;
 //uint8_t IDL_TYPE_RESERVED = 0x70;
 //uint8_t IDL_TYPE_EMPTY = 0x6F;
 uint8_t IDL_TYPE_VEC = 0x6D;
@@ -93,7 +93,7 @@ void match_magic(const uint8_t *buf, size_t len) {
 }
 
 //
-// reads
+// reads for int/nat 8/16/32/64 bits
 //
 
 int8_t ic_reads_int8() {
@@ -202,6 +202,7 @@ uint64_t ic_reads_nat64() {
   return result;
 }
 
+
 //
 //  Functions to write (return) data from a canister
 //
@@ -271,7 +272,7 @@ void ic_writes_text(char *result){
   write_magic();
   write_byte(0x00);
   write_byte(0x01);
-  write_byte(IDL_TYPE_text);
+  write_byte(IDL_TYPE_TEXT);
   // write size of string
   write_uleb128(strlen(result));
   // write string
