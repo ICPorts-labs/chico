@@ -1,0 +1,6 @@
+service : {
+  test_int8: (int8) -> (int8);
+  test_int16: (int16) -> (int16);
+  test_int32: (int32) -> (int32);
+  test_int64: (int64) -> (int64);
+}      
