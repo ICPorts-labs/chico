@@ -20,3 +20,4 @@ void match_magic(const uint8_t *buf, size_t len);
 
 void ic_writes_text(char *result);
 
+void ic_writes_int8(int8_t  val);
