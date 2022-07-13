@@ -88,4 +88,4 @@ RUN bash build.sh
 
 RUN chmod u+x run.sh
 EXPOSE 8000
-ENTRYPOINT ["/chico/examples/HelloWorld/run.sh"]
+ENTRYPOINT ["/chico/examples/tests/run.sh"]
