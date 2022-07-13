@@ -17,7 +17,9 @@ Tests
 
 void test_int8() WASM_EXPORT("canister_update test_int8");
 void test_int8() {
+  ic_log_message("start test");
   int8_t val = ic_reads_int8();
+  ic_log_message("value is read");
   ic_writes_int8(val);
 }
 
