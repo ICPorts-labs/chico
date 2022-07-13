@@ -17,6 +17,7 @@ dfx deploy
 echo "Canister deployed"
 
 cp ../tests.wasm .dfx/local/canisters/tests/tests.wasm
+cp ../tests.did .dfx/local/canisters/tests/tests.did
 yes yes | dfx canister install -m reinstall tests
 dfx canister call tests test_int8 '(1)'
 
