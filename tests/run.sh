@@ -28,4 +28,14 @@ dfx canister call tests test_int32 '(-1600)' --type idl
 dfx canister call tests test_int64 '(300000)' --type idl
 dfx canister call tests test_int64 '(-30000000)' --type idl
 
+dfx canister call tests test_nat8 '(1)' --type idl
+dfx canister call tests test_nat8 '(100)' --type idl
+dfx canister call tests test_nat16 '(1)' --type idl
+dfx canister call tests test_nat16 '(100)' --type idl
+dfx canister call tests test_nat32 '(1)' --type idl
+dfx canister call tests test_nat32 '(100)' --type idl
+dfx canister call tests test_nat64 '(1)' --type idl
+dfx canister call tests test_nat64 '(100)' --type idl
+
+
 echo "The end!"
