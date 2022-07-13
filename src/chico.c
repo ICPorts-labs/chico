@@ -157,7 +157,7 @@ uint8_t ic_reads_nat8() {
   match_magic(buf, len);
   match_byte(buf, len, 4, 0x00);
   match_byte(buf, len, 5, 0x01);
-  match_byte(buf, len, 6, IDL_TYPE_INT8);
+  match_byte(buf, len, 6, IDL_TYPE_NAT8);
   uint8_t result =  (uint8_t)buf[7];
   free(buf);
   return result;
@@ -170,7 +170,7 @@ uint16_t ic_reads_nat16() {
   match_magic(buf, len);
   match_byte(buf, len, 4, 0x00);
   match_byte(buf, len, 5, 0x01);
-  match_byte(buf, len, 6, IDL_TYPE_INT16);
+  match_byte(buf, len, 6, IDL_TYPE_NAT16);
   uint16_t result =  (buf[7] | buf[8] << 8);
   free(buf);
   return result;
@@ -183,7 +183,7 @@ uint32_t ic_reads_nat32() {
   match_magic(buf, len);
   match_byte(buf, len, 4, 0x00);
   match_byte(buf, len, 5, 0x01);
-  match_byte(buf, len, 6, IDL_TYPE_INT32);
+  match_byte(buf, len, 6, IDL_TYPE_NAT32);
   uint32_t result =  (buf[7] | buf[8] << 8 | buf[9] << 16 | buf[10] << 24);
   free(buf);
   return result;
@@ -196,7 +196,7 @@ uint64_t ic_reads_nat64() {
   match_magic(buf, len);
   match_byte(buf, len, 4, 0x00);
   match_byte(buf, len, 5, 0x01);
-  match_byte(buf, len, 6, IDL_TYPE_INT64);
+  match_byte(buf, len, 6, IDL_TYPE_NAT64);
   uint64_t result =  (buf[7] | buf[8] << 8 | buf[9] << 16 | buf[10] << 24 | buf[11] <<32 | buf[12] << 40 | buf[13] << 48 | buf[14] << 56);
   free(buf);
   return result;
