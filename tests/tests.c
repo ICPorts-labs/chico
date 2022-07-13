@@ -69,8 +69,8 @@ void test_nat32() {
   ic_writes_nat32(val);
 }
 
-void test_int64() WASM_EXPORT("canister_update test_nat64");
-void test_int64() {
+void test_nat64() WASM_EXPORT("canister_update test_nat64");
+void test_nat64() {
   uint64_t val = ic_reads_nat64();
   ic_writes_nat64(val);
 }
