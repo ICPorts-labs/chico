@@ -22,7 +22,7 @@ yes yes | dfx canister install -m reinstall tests
 dfx canister call tests test_int8 '(1 : int8 )' --type idl
 dfx canister call tests test_int8 '(-1 : int8) ' --type idl
 dfx canister call tests test_int16 '(1 : int16)' --type idl
-dfx canister call tests test_int16 '(-300 : int32)' --type idl
+dfx canister call tests test_int16 '(-300 : int16)' --type idl
 dfx canister call tests test_int32 '(300 : int32)' --type idl
 dfx canister call tests test_int32 '(-1600 : int32)' --type idl
 dfx canister call tests test_int64 '(300000 : int64)' --type idl
