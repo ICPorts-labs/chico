@@ -227,6 +227,7 @@ void write_nat32(uint32_t  val) {
 void write_nat64(uint64_t  val) {
   write_byte((uint8_t)val);
   write_byte((uint8_t)(val>>8));
+  write_byte((uint8_t)(val>>16));
   write_byte((uint8_t)(val>>24));
   write_byte((uint8_t)(val>>32));
   write_byte((uint8_t)(val>>40));
