@@ -144,7 +144,7 @@ int64_t ic_reads_int64() {
   match_byte(buf, len, 4, 0x00);
   match_byte(buf, len, 5, 0x01);
   match_byte(buf, len, 6, IDL_TYPE_INT64);
-  int64_t result =  (buf[7] | buf[8] << 8 | buf[9] << 16 | buf[10] << 24 | buf[11] <<32 | buf[12] << 40 | buf[13] << 48 | buf[14] << 56);
+  int64_t result =  ((int64_t)buf[7] | (int64_t)buf[8] << 8 | (int64_t)buf[9] << 16 | (int64_t)buf[10] << 24 | (int64_t)buf[11] <<32 | (int64_t)buf[12] << 40 | (int64_t)buf[13] << 48 | (int64_t)buf[14] << 56);
   free(buf);
   return result;
 }
@@ -197,7 +197,7 @@ uint64_t ic_reads_nat64() {
   match_byte(buf, len, 4, 0x00);
   match_byte(buf, len, 5, 0x01);
   match_byte(buf, len, 6, IDL_TYPE_NAT64);
-  uint64_t result =  (buf[7] | buf[8] << 8 | buf[9] << 16 | buf[10] << 24 | buf[11] <<32 | buf[12] << 40 | buf[13] << 48 | buf[14] << 56);
+  uint64_t result =  ((uint64_t)buf[7] | (uint64_t)buf[8] << 8 | (uint64_t)buf[9] << 16 | (uint64_t)buf[10] << 24 | (uint64_t)buf[11] <<32 | (uint64_t)buf[12] << 40 | (uint64_t)buf[13] << 48 | (uint64_t)buf[14] << 56);
   free(buf);
   return result;
 }
