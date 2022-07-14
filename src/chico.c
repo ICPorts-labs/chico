@@ -323,7 +323,7 @@ void ic_writes_int32(int32_t  val){
   write_byte(0x00);
   write_byte(0x01);
   write_byte(IDL_TYPE_INT32);
-  write_int16(val);
+  write_int32(val);
   ic0_msg_reply();
 }
 
