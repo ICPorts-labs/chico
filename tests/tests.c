@@ -7,6 +7,7 @@ TESTS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "ic0.h"
 #include "chico.h"
 
@@ -91,4 +92,14 @@ void test_nat64() {
   ic_log_message("value is read");
   ic_writes_nat64(val);
   ic_log_message("end of test");
+}
+
+/*
+ test bool
+ */
+
+void test_bool() WASM_EXPORT("canister_update test_bool");
+void test_bool() {
+  _Bool val = ic_reads_bool();
+  ic_writes_bool(val);
 }

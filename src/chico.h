@@ -39,3 +39,6 @@ uint8_t ic_reads_nat8();
 uint16_t ic_reads_nat16();
 uint32_t ic_reads_nat32();
 uint64_t ic_reads_nat64();
+
+_Bool ic_reads_bool();
+void ic_writes_bool(_Bool val);

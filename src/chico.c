@@ -7,6 +7,7 @@ Chico: C/C++ CDK for building canisters on the Internet Computer
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "ic0.h"
 
 
@@ -202,6 +203,21 @@ uint64_t ic_reads_nat64() {
   return result;
 }
 
+// booleans
+
+_Bool ic_reads_bool(){
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_BOOL);
+  if ((uint8_t)buf[7]==0x00)
+    return false;
+  else
+    return true;
+}
 
 //
 //  Functions to write (return) data from a canister
