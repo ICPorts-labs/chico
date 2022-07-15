@@ -12,6 +12,15 @@ Chico: C/C++ CDK for building canisters on the Internet Computer
 
 
 //
+// trap function
+//
+
+void trap(const char *str) {
+  size_t len = strlen(str);
+  ic0_trap((uint32_t)(str), (uint32_t)(len));
+}
+
+//
 // This is the list of supported types.
 // That is, these are the types that can be to and from a C/C++ canister
 // 

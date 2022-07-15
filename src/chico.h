@@ -3,6 +3,8 @@ extern uint8_t IDL_MAGIC[4];
 extern uint8_t IDL_TYPE_int;
 extern uint8_t IDL_TYPE_text;
 
+void trap(const char *str);
+  
 void write_magic();
 
 void write_byte(uint8_t byte);
