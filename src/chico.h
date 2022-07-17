@@ -1,7 +1,22 @@
 
 extern uint8_t IDL_MAGIC[4];
-extern uint8_t IDL_TYPE_int;
-extern uint8_t IDL_TYPE_text;
+extern uint8_t IDL_TYPE_INT;
+extern uint8_t IDL_TYPE_TEXT;
+extern uint8_t IDL_TYPE_BOOL;
+extern uint8_t IDL_TYPE_NAT8;
+extern uint8_t IDL_TYPE_NAT16;
+extern uint8_t IDL_TYPE_NAT32;
+extern uint8_t IDL_TYPE_NAT64;
+extern uint8_t IDL_TYPE_INT8;
+extern uint8_t IDL_TYPE_INT16;
+extern uint8_t IDL_TYPE_INT32;
+extern uint8_t IDL_TYPE_INT64;
+extern uint8_t IDL_TYPE_FLOAT32;
+extern uint8_t IDL_TYPE_FLOAT64;
+extern uint8_t IDL_TYPE_VEC;
+extern uint8_t IDL_TYPE_RECORD;
+extern uint8_t IDL_TYPE_PRINCIPAL;
+
 
 void trap(const char *str);
   
@@ -21,6 +36,8 @@ void match_magic(const uint8_t *buf, size_t len);
 
 
 void ic_writes_text(char *result);
+
+void write_int64(int64_t  val);
 
 void ic_writes_int8(int8_t  val);
 void ic_writes_int16(int16_t  val);

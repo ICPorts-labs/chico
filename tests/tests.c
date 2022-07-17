@@ -10,7 +10,7 @@ TESTS
 #include <stdbool.h>
 #include "ic0.h"
 #include "chico.h"
-
+#include "ic_vec.h"
 
 /*
 Tests int
@@ -102,4 +102,15 @@ void test_bool() WASM_EXPORT("canister_update test_bool");
 void test_bool() {
   _Bool val = ic_reads_bool();
   ic_writes_bool(val);
+}
+
+
+/*
+ test vec
+ */
+
+void test_vec_int64() WASM_EXPORT("canister_update test_vec_int64");
+void test_vec_int64() {
+  vector val = ic_reads_vec_int64();
+  ic_writes_vec_int64(val);
 }
