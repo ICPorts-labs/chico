@@ -38,6 +38,15 @@ void match_magic(const uint8_t *buf, size_t len);
 void ic_writes_text(char *result);
 
 void write_int64(int64_t  val);
+void write_nat64(uint64_t  val);
+void write_int32(int32_t  val);
+void write_nat32(uint32_t  val);
+void write_int16(int16_t  val);
+void write_nat16(uint16_t  val);
+void write_int8(int8_t  val);
+void write_nat8(uint8_t  val);
+
+
 
 void ic_writes_int8(int8_t  val);
 void ic_writes_int16(int16_t  val);

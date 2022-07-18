@@ -111,6 +111,50 @@ void test_bool() {
 
 void test_vec_int64() WASM_EXPORT("canister_update test_vec_int64");
 void test_vec_int64() {
-  vector val = ic_reads_vec_int64();
+  vector val= ic_reads_vec_int64(val);
   ic_writes_vec_int64(val);
 }
+
+void test_vec_nat64() WASM_EXPORT("canister_update test_vec_nat64");
+void test_vec_nat64() {
+  vector val= ic_reads_vec_nat64(val);
+  ic_writes_vec_nat64(val);
+}
+
+void test_vec_int32() WASM_EXPORT("canister_update test_vec_int32");
+void test_vec_int32() {
+  vector val= ic_reads_vec_int32(val);
+  ic_writes_vec_int32(val);
+}
+
+void test_vec_nat32() WASM_EXPORT("canister_update test_vec_nat32");
+void test_vec_nat32() {
+  vector val= ic_reads_vec_nat32(val);
+  ic_writes_vec_nat32(val);
+}
+
+void test_vec_int16() WASM_EXPORT("canister_update test_vec_int16");
+void test_vec_int16() {
+  vector val= ic_reads_vec_int16(val);
+  ic_writes_vec_int16(val);
+}
+
+void test_vec_nat16() WASM_EXPORT("canister_update test_vec_nat16");
+void test_vec_nat16() {
+  vector val= ic_reads_vec_nat16(val);
+  ic_writes_vec_nat16(val);
+}
+
+void test_vec_int8() WASM_EXPORT("canister_update test_vec_int8");
+void test_vec_int8() {
+  vector val= ic_reads_vec_int8(val);
+  ic_writes_vec_int8(val);
+}
+
+void test_vec_nat8() WASM_EXPORT("canister_update test_vec_nat8");
+void test_vec_nat8() {
+  vector val= ic_reads_vec_nat8(val);
+  ic_writes_vec_nat8(val);
+}
+
+

@@ -30,3 +30,20 @@ void vector_free(vector *);
 
 vector ic_reads_vec_int64();
 void ic_writes_vec_int64(vector v);
+vector ic_reads_vec_nat64();
+void ic_writes_vec_nat64(vector v);
+
+vector ic_reads_vec_int32();
+void ic_writes_vec_int32(vector v);
+vector ic_reads_vec_nat32();
+void ic_writes_vec_nat32(vector v);
+
+vector ic_reads_vec_int16();
+void ic_writes_vec_int16(vector v);
+vector ic_reads_vec_nat16();
+void ic_writes_vec_nat16(vector v);
+
+vector ic_reads_vec_int8();
+void ic_writes_vec_int8(vector v);
+vector ic_reads_vec_nat8();
+void ic_writes_vec_nat8(vector v);
