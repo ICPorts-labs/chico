@@ -143,3 +143,15 @@ void test_text() {
   char *val= ic_reads_text();
   ic_writes_text(val);
 }
+
+/*
+ test float
+ */
+
+
+void test_float() WASM_EXPORT("canister_update test_float");
+void test_float() {
+  double val= ic_reads_float();
+  ic_writes_float(val);
+}
+

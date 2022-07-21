@@ -71,3 +71,7 @@ uint64_t ic_reads_nat64();
 
 _Bool ic_reads_bool();
 void ic_writes_bool(_Bool val);
+
+double ic_reads_float();
+void ic_writes_float(double val);
+

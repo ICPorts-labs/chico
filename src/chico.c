@@ -438,3 +438,32 @@ void ic_writes_nat64(uint64_t  val){
   ic0_msg_reply();
 }
 
+//
+// floats
+//
+
+double ic_reads_float() {
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_FLOAT64);
+  double result;
+  memcpy(&result,&buf[7], sizeof(result));
+  free(buf);
+  return result;   
+}
+
+void ic_writes_float(double val){
+  write_magic();
+  write_byte(0x00);
+  write_byte(0x01);
+  write_byte(IDL_TYPE_FLOAT64);
+  char *ptb = (char *)&val;
+  for(int i=0;i<sizeof val;i++){
+    write_byte((uint8_t)(*ptb++));
+  }
+  ic0_msg_reply();
+}
