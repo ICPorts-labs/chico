@@ -62,19 +62,34 @@ void write_byte(uint8_t byte) {
 }
 
 void write_uleb128 (uint32_t x) {
-  unsigned char buf[10];
+  unsigned char buf[8];
   int bytes = 0;
-  uint32_t len = x;
   do {
     buf[bytes] = x & 0x7fU;
     if (x >>= 7) buf[bytes] |= 0x80U;
     ++bytes;
   } while (x);
-  write_byte((uint32_t)buf[0]);
-  if ( len >= 256) {
-    write_byte((uint32_t)buf[1]);
+  for (uint8_t i=0; i < bytes; i++) {
+    write_byte((uint32_t)buf[i]);
   }
-  // we assume we don't need more than 256^2 sized buffers   
+}
+
+
+uint32_t read_uleb128(uint8_t *buf, uint32_t offset, uint8_t *budget){
+  uint32_t val = 0;
+  uint8_t shift = 0;
+  uint32_t i = offset; 
+  
+  while (true)
+    {
+      uint8_t b = buf[i];
+      i = i + 1;
+      val |= (b & 0x7f) << shift;
+      if ((b & 0x80) == 0) break;
+      shift += 7;
+    }
+  *budget = i - offset;
+  return val;
 }
 
 
@@ -228,8 +243,28 @@ _Bool ic_reads_bool(){
     return true;
 }
 
+// text
+
+char* ic_reads_text(){
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x00);
+  match_byte(buf, len, 5, 0x01);
+  match_byte(buf, len, 6, IDL_TYPE_TEXT);
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t text_length = read_uleb128(buf,7,budget);
+  char* text_buf = malloc(sizeof(char) * text_length);
+  uint32_t offset = (7 + *budget);
+  memcpy(text_buf,&buf[offset],text_length);
+  return text_buf;
+}
+
 //
-//  Functions to write (return) data from a canister
+//  Functions to write (return) data fro m a canister
 //
 
 

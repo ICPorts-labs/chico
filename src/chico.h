@@ -35,6 +35,7 @@ void match_byte(const uint8_t *buf, size_t len, int off, uint8_t byte);
 void match_magic(const uint8_t *buf, size_t len);
 
 
+char* ic_reads_text();
 void ic_writes_text(char *result);
 
 void write_int64(int64_t  val);

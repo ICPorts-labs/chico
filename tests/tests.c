@@ -158,3 +158,13 @@ void test_vec_nat8() {
 }
 
 
+/*
+  text text
+*/
+
+void test_text() WASM_EXPORT("canister_update test_text");
+void test_text() {
+  ic_log_message("test text");
+  char *val= ic_reads_text();
+  ic_writes_text(val);
+}
