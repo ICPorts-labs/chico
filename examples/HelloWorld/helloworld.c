@@ -24,7 +24,7 @@ void greet() {
   match_magic(buf, len);
   match_byte(buf, len, 4, 0x00);
   match_byte(buf, len, 5, 0x01);
-  match_byte(buf, len, 6, IDL_TYPE_text);
+  match_byte(buf, len, 6, IDL_TYPE_TEXT);
   int offset = 0;
   if (len < 256) {
     offset =8;
