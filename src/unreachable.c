@@ -11,14 +11,17 @@
 
 void *dlopen(const char *file, int mode) {
   trap("calling dlopen");
+  return 0;
 }
 
 char  *dlerror(void) {
   trap("calling dlerror");
+  return 0;
 }
 
 void *dlsym(void *restrict p, const char *restrict s){
   trap("calling dlsym");
+  return 0;
 }
 
 int dlclose(void *handle) {
