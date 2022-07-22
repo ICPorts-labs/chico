@@ -53,7 +53,7 @@ clang -c sqlite3-canister.c  -o sqlite3-canister.o \
       -I ${CHICO_PATH} \
       -I.
 
-wasm-ld sqlite3-canister.o memvfs.o sqlite_os_init.o sqlite3.o unreachable.o utils.o -o sqlite.wasm \
+wasm-ld sqlite3-canister.o memvfs.o sqlite_os_init.o sqlite3.o chico.o unreachable.o utils.o -o sqlite.wasm \
 	--demangle --allow-undefined --export-dynamic --no-entry  \
 	${WASI_LIBC}
 
