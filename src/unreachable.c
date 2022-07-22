@@ -137,13 +137,13 @@ void __unlock(volatile int *l) {
 int *___errno_location(void)
 {
   trap("calling __errno_location");
-  return 1;
+  return 0;
 }
 
 int *__errno_location(void)
 {
   trap("calling __errno_location");
-  return 1;
+  return 0;
 }
 
 uid_t geteuid(void)
@@ -154,7 +154,7 @@ uid_t geteuid(void)
 
 char *getcwd(char *buf, size_t size) {
    trap("calling getcwd");
-   return 1;
+   return 0;
 }
 
 ssize_t write(int fd, const void *buf, size_t count)
@@ -225,6 +225,7 @@ long double __addtf3 (long double a, long double b) {
 
 void *mmap64(void *start, size_t len, int prot, int flags, int fd, off_t off) {
    trap("calling mmap64");
+  return 0;
 }
 
 int __letf2 (long double a, long double b) {
@@ -277,7 +278,7 @@ int posix_fallocate64(int fd, off_t base, off_t len) {
 
 char *strerror(int e) {
   trap("calling strerror");
-  return 1;
+  return 0;
 }
 
 off_t ftruncate64(int fd, off_t offset) {
