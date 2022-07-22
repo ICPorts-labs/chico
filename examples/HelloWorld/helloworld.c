@@ -17,6 +17,7 @@
 
 void greet() WASM_EXPORT("canister_query greet");
 void greet() {
+  ic_log_message("Running the Hello world example in Chico!");
   // read text input
    char *val= ic_reads_text();
    int len = strlen(val);
