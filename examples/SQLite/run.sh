@@ -6,7 +6,7 @@ cd sqlite
 dfx start --background 
 
 # create the sqlite canister
-dfx canister create sqlite
+dfx canister create sqlite_backend
 
 dfx build 
 dfx deploy
