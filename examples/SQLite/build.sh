@@ -15,7 +15,7 @@ clang -c ${CHICO_PATH}/chico.c -o chico.o \
       -I ${CHICO_PATH} \
       -O3 --sysroot=${SYSROOT} --target=wasm32-wasi
 
-clang -c ${CHICO_PATH}/utils.c -o utils.o \
+clang -c ${CHICO_PATH}/unreachable.c -o unreachable.o \
       -I ${CHICO_PATH} \
       -O3 --sysroot=${SYSROOT} --target=wasm32-wasi
 
@@ -48,7 +48,7 @@ clang -c sqlite3-canister.c  -o sqlite3-canister.o \
       -I ${CHICO_PATH} \
       -I.
 
-wasm-ld sqlite3-canister.o memvfs.o sqlite_os_init.o sqlite3.o chico.o utils.o -o sqlite.wasm \
+wasm-ld sqlite3-canister.o memvfs.o sqlite_os_init.o sqlite3.o unreachable.o utils.o -o sqlite.wasm \
 	--demangle --allow-undefined --export-dynamic --no-entry  \
 	${WASI_LIBC}
 
