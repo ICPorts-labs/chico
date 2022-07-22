@@ -83,7 +83,7 @@ void sqlite_update() {
 }
 
 
-static int write_back(sqlite3_str *query_result_buf , int argc, char **argv, 
+static int* write_back(sqlite3_str *query_result_buf , int argc, char **argv, 
                     char **azColName) {
   for (int i = 0; i < argc; i++) {
     sqlite3_str_appendall(query_result_buf, azColName[i]);
