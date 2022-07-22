@@ -7,6 +7,6 @@ service : {
   test_nat16: (nat16) -> (nat16);
   test_nat32: (nat32) -> (nat32);
   test_nat64: (nat64) -> (nat64);
-  test_vec_int64: (vec int64) -> (vec int64 )
-  test_vec_nat64: (vec nat64) -> (vec nat64 )
+  test_vec_int64: (vec int64) -> (vec int64 );
+  test_vec_nat64: (vec nat64) -> (vec nat64 );
 }      
