@@ -19,7 +19,7 @@ void greet() WASM_EXPORT("canister_query greet");
 void greet() {
   // read text input
    char *val= ic_reads_text();
-   len = strlen(val);
+   int len = strlen(val);
   // build response
   char s1[] = "Chico says hello to you ";
   char s2[] = " !";
