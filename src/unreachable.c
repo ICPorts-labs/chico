@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <string.h>
 #include "ic0.h"
+#include "chico.h"
+
 
 #include <limits.h>
 #include <errno.h>
