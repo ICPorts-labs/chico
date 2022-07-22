@@ -65,7 +65,7 @@ void sqlite_update() {
   sqlite3_str *sql_stmt = sqlite3_str_new(db);
   sqlite3_str_append(sql_stmt,buf,sql_len );
   free(buf);
-  const char *sqlptr = sqlite3_str_finish(sql_stmt);
+  char *sqlptr = sqlite3_str_finish(sql_stmt);
   char* messageError=0;
   int rc = 0;
   if (db == NULL) {
@@ -83,7 +83,7 @@ void sqlite_update() {
 }
 
 
-int write_back(sqlite3_str *query_result_buf , int argc, char **argv, 
+static int write_back(sqlite3_str *query_result_buf , int argc, char **argv, 
                     char **azColName) {
   for (int i = 0; i < argc; i++) {
     sqlite3_str_appendall(query_result_buf, azColName[i]);
