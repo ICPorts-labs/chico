@@ -18,7 +18,7 @@ echo "Canister deployed"
 
 cp ../tests.wasm .dfx/local/canisters/tests_backend/tests_backend.wasm
 cp ../tests.did .dfx/local/canisters/tests_backend/tests_backend.did
-yes yes | dfx canister install -m reinstall tests
+yes yes | dfx canister install -m reinstall tests_backend
 dfx canister call tests_backend test_int8 '(1 : int8 )' --type idl
 dfx canister call tests_backend test_int8 '(-1 : int8) ' --type idl
 dfx canister call tests_backend test_int16 '(1 : int16)' --type idl
