@@ -58,7 +58,7 @@ void sqlite_init() {
 void sqlite_update() WASM_EXPORT("canister_update sqlite_update");
 void sqlite_update() {
   char *buf= ic_reads_text();
-  int sql_len = strlen(val);
+  int sql_len = strlen(buf);
   // display update message
   ic_log_message(buf);
  
@@ -103,7 +103,7 @@ int write_back(sqlite3_str *query_result_buf , int argc, char **argv,
 void sqlite_query() WASM_EXPORT("canister_query sqlite_query");
 void sqlite_query() {
   char *buf= ic_reads_text();
-  int sql_len = strlen(val);
+  int sql_len = strlen(buf);
   // display update message
   ic_log_message(buf);
 
