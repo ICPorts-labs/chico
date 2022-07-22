@@ -7,11 +7,6 @@
 #include <errno.h>
 #include <stdarg.h>
 
-void trap(const char *str) {
-  size_t len = strlen(str);
-  ic0_trap((uint32_t)(str), (uint32_t)(len));
-}
-
 void *dlopen(const char *file, int mode) {
   trap("calling dlopen");
 }
