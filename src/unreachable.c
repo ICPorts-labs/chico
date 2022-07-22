@@ -251,7 +251,7 @@ int __gttf2 (long double a, long double b) {
    return 1;
 }
 
-void __floatditf (long a, long double b) {
+void __floatditf (long a, long long b) {
   trap("calling __floatditf");
 }
 
