@@ -79,7 +79,13 @@ ENV CHICO_PATH "/chico/src"
 # Build the SQLite example
 #
 
+# download sqlite                                                                                                                                                                                                                                                                                                         
+RUN wget https://www.sqlite.com/2022/sqlite-autoconf-3390200.tar.gz
+RUN tar xvf sqlite-autoconf-3390200.tar.gz
+
 WORKDIR examples/SQLite
+RUN cp ../../sqlite-autoconf-3390200/sqlite3.c .
+RUN cp ../../sqlite-autoconf-3390200/*.h .
 RUN bash build.sh
 
 #
