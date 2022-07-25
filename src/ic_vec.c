@@ -95,7 +95,7 @@ vector ic_reads_vec_int64(vector v){
   budget = &budget_var;
   uint32_t vec_length= read_uleb128(buf,9,budget);
   int64_t result = 0;
-  for (uint8_t i=0 ; i< vec_length; i=i+1) {
+  for (uint32_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(int64_t);
     result =  ((int64_t)buf[10 + offset] | (int64_t)buf[11 + offset] << 8 | (int64_t)buf[12 + offset] << 16 | (int64_t)buf[13 + offset] << 24 | (int64_t)buf[14 + offset] <<32 | (int64_t)buf[15 + offset] << 40 | (int64_t)buf[16 + offset] << 48 | (int64_t)buf[17 + offset] << 56);
     int64_t *ptr = (int64_t *)malloc(sizeof(int64_t));
@@ -140,7 +140,7 @@ vector ic_reads_vec_nat64(vector v){
   budget = &budget_var;
   uint32_t vec_length= read_uleb128(buf,9,budget);
   uint64_t result = 0;
-  for (uint8_t i=0 ; i< vec_length; i=i+1) {
+  for (uint32_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(uint64_t);
     result =  ((uint64_t)buf[10 + offset] | (uint64_t)buf[11 + offset] << 8 | (uint64_t)buf[12 + offset] << 16 | (uint64_t)buf[13 + offset] << 24 | (uint64_t)buf[14 + offset] <<32 | (uint64_t)buf[15 + offset] << 40 | (uint64_t)buf[16 + offset] << 48 | (uint64_t)buf[17 + offset] << 56);
     uint64_t *ptr = (uint64_t *)malloc(sizeof(uint64_t));
@@ -185,7 +185,7 @@ vector ic_reads_vec_int32(vector v){
   budget = &budget_var;
   uint32_t vec_length= read_uleb128(buf,9,budget);
   int32_t result = 0;
-  for (uint8_t i=0 ; i< vec_length; i=i+1) {
+  for (uint32_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(int32_t );
     result =  ((int32_t)buf[10 + offset] | (int32_t)buf[11 + offset] << 8 | (int32_t)buf[12 + offset] << 16 | (int32_t)buf[13 + offset] << 24 );
     int32_t *ptr = (int32_t *)malloc(sizeof(int32_t));
@@ -230,7 +230,7 @@ vector ic_reads_vec_nat32(vector v){
   budget = &budget_var;
   uint32_t vec_length= read_uleb128(buf,9,budget);
   uint32_t result = 0;
-  for (uint8_t i=0 ; i< vec_length; i=i+1) {
+  for (uint32_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(uint32_t);
     result =  ((uint32_t)buf[10 + offset] | (uint32_t)buf[11 + offset] << 8 | (uint32_t)buf[12 + offset] << 16 | (uint32_t)buf[13 + offset] << 24 );
     uint32_t *ptr = (uint32_t *)malloc(sizeof(uint32_t));
@@ -275,7 +275,7 @@ vector ic_reads_vec_int16(vector v){
   budget = &budget_var;
   uint32_t vec_length= read_uleb128(buf,9,budget);
   int16_t result = 0;
-  for (uint8_t i=0 ; i< vec_length; i=i+1) {
+  for (uint32_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(int16_t);
     result =  ((int16_t)buf[10 + offset] | (int16_t)buf[11 + offset] << 8);
     int16_t *ptr = (int16_t *)malloc(sizeof(int16_t));
@@ -321,7 +321,7 @@ vector ic_reads_vec_nat16(vector v){
   budget = &budget_var;
   uint32_t vec_length= read_uleb128(buf,9,budget);
   uint16_t result = 0;
-  for (uint8_t i=0 ; i< vec_length; i=i+1) {
+  for (uint32_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(uint16_t);
     result =  ((uint16_t)buf[10 + offset] | (uint16_t)buf[11 + offset] << 8 );
     uint16_t *ptr = (uint16_t *)malloc(sizeof(uint16_t));
@@ -368,7 +368,7 @@ vector ic_reads_vec_int8(vector v){
   budget = &budget_var;
   uint32_t vec_length= read_uleb128(buf,9,budget);
   int8_t result = 0;
-  for (uint8_t i=0 ; i< vec_length; i=i+1) {
+  for (uint32_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(int8_t);
     result =  (int8_t)buf[10 + offset];
     int8_t *ptr = (int8_t *)malloc(sizeof(int8_t));
@@ -414,7 +414,7 @@ vector ic_reads_vec_nat8(vector v){
   budget = &budget_var;
   uint32_t vec_length= read_uleb128(buf,9,budget);
   uint8_t result = 0;
-  for (uint8_t i=0 ; i< vec_length; i=i+1) {
+  for (uint32_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(uint8_t);
     result =  (uint8_t)buf[10 + offset];
     uint8_t *ptr = (uint8_t *)malloc(sizeof(uint8_t));
