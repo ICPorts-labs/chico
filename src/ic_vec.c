@@ -90,7 +90,10 @@ vector ic_reads_vec_int64(vector v){
   match_byte(buf, len, 6, IDL_TYPE_INT64);
   match_byte(buf, len, 7, 0x01);
   match_byte(buf, len, 8, 0x00);
-  uint8_t vec_length= buf[9];
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
   int64_t result = 0;
   for (uint8_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(int64_t);
@@ -132,7 +135,10 @@ vector ic_reads_vec_nat64(vector v){
   match_byte(buf, len, 6, IDL_TYPE_NAT64);
   match_byte(buf, len, 7, 0x01);
   match_byte(buf, len, 8, 0x00);
-  uint8_t vec_length= buf[9];
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
   uint64_t result = 0;
   for (uint8_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(uint64_t);
@@ -174,7 +180,10 @@ vector ic_reads_vec_int32(vector v){
   match_byte(buf, len, 6, IDL_TYPE_INT32);
   match_byte(buf, len, 7, 0x01);
   match_byte(buf, len, 8, 0x00);
-  uint8_t vec_length= buf[9];
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
   int32_t result = 0;
   for (uint8_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(int32_t );
@@ -216,7 +225,10 @@ vector ic_reads_vec_nat32(vector v){
   match_byte(buf, len, 6, IDL_TYPE_NAT32);
   match_byte(buf, len, 7, 0x01);
   match_byte(buf, len, 8, 0x00);
-  uint8_t vec_length= buf[9];
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
   uint32_t result = 0;
   for (uint8_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(uint32_t);
@@ -258,7 +270,10 @@ vector ic_reads_vec_int16(vector v){
   match_byte(buf, len, 6, IDL_TYPE_INT16);
   match_byte(buf, len, 7, 0x01);
   match_byte(buf, len, 8, 0x00);
-  uint8_t vec_length= buf[9];
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
   int16_t result = 0;
   for (uint8_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(int16_t);
@@ -301,7 +316,10 @@ vector ic_reads_vec_nat16(vector v){
   match_byte(buf, len, 6, IDL_TYPE_NAT16);
   match_byte(buf, len, 7, 0x01);
   match_byte(buf, len, 8, 0x00);
-  uint8_t vec_length= buf[9];
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
   uint16_t result = 0;
   for (uint8_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(uint16_t);
@@ -345,7 +363,10 @@ vector ic_reads_vec_int8(vector v){
   match_byte(buf, len, 6, IDL_TYPE_INT8);
   match_byte(buf, len, 7, 0x01);
   match_byte(buf, len, 8, 0x00);
-  uint8_t vec_length= buf[9];
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
   int8_t result = 0;
   for (uint8_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(int8_t);
@@ -388,7 +409,10 @@ vector ic_reads_vec_nat8(vector v){
   match_byte(buf, len, 6, IDL_TYPE_NAT8);
   match_byte(buf, len, 7, 0x01);
   match_byte(buf, len, 8, 0x00);
-  uint8_t vec_length= buf[9];
+  uint8_t budget_var=1;
+  uint8_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
   uint8_t result = 0;
   for (uint8_t i=0 ; i< vec_length; i=i+1) {
     uint32_t offset= i*sizeof(uint8_t);
