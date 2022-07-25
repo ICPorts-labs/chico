@@ -38,11 +38,11 @@ dfx canister call tests_backend test_nat64 '(1 : nat64)' --type idl
 dfx canister call tests_backend test_nat64 '(100 : nat64)' --type idl
 
 
-dfx canister call tests_backend test_vec_nat64 'vec {1;2;3;198719;999999999}' --type idl
-dfx canister call tests_backend test_vec_int64 'vec {-1;-2;-3;-198719;-999999999}' --type idl
+dfx canister call tests_backend test_vec_nat64 '(vec {1;2;3;198719;999999999})' --type idl
+dfx canister call tests_backend test_vec_int64 '(vec {-1;-2;-3;-198719;-999999999})' --type idl
 
-dfx canister call tests_backend test_vec_nat32 'vec {1;2;3;198719;9999999}' --type idl
-dfx canister call tests_backend test_vec_int32 'vec {-1;-2;-3;-198719;-9999999}' --type idl
+dfx canister call tests_backend test_vec_nat32 '(vec {1;2;3;198719;9999999})' --type idl
+dfx canister call tests_backend test_vec_int32 '(vec {-1;-2;-3;-198719;-9999999})' --type idl
 
 dfx canister call tests_backend test_vec_int8 '( vec {-1;-2;-3;-4;-5;-6;-7;-8;-9;-0;-1;-2;-3;-4;-5;-6;-7;-8;-9;-0;-1;-2;-3;-4;-5;-6;-7;-8;-9;-0} )'
 
