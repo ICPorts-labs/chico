@@ -27,6 +27,7 @@ void write_byte(uint8_t byte);
 void write_return_byte(int x);
 
 void write_uleb128 (uint32_t x);
+uint32_t read_uleb128(uint8_t *buf, uint32_t offset, uint8_t *budget);
 
 void ic_log_message(const char *message);
 
