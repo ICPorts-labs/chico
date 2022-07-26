@@ -75,7 +75,7 @@ void write_uleb128 (uint32_t x) {
 }
 
 
-uint32_t read_uleb128(uint8_t *buf, uint32_t offset, uint8_t *budget){
+uint32_t read_uleb128(uint8_t *buf, uint32_t offset, uint32_t *budget){
   uint32_t val = 0;
   uint8_t shift = 0;
   uint32_t i = offset; 
