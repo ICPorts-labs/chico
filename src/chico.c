@@ -253,8 +253,8 @@ char* ic_reads_text(){
   match_byte(buf, len, 4, 0x00);
   match_byte(buf, len, 5, 0x01);
   match_byte(buf, len, 6, IDL_TYPE_TEXT);
-  uint8_t budget_var=1;
-  uint8_t *budget;
+  uint32_t budget_var=1;
+  uint32_t *budget;
   budget = &budget_var;
   uint32_t text_length = read_uleb128(buf,7,budget);
   char* text_buf = malloc(sizeof(char) * text_length);
