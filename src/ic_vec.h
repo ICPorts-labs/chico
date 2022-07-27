@@ -47,3 +47,6 @@ vector ic_reads_vec_int8();
 void ic_writes_vec_int8(vector v);
 vector ic_reads_vec_nat8();
 void ic_writes_vec_nat8(vector v);
+
+vector ic_reads_vec_text();
+void ic_writes_vec_text(vector v);

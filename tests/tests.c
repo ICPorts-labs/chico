@@ -155,3 +155,14 @@ void test_float() {
   ic_writes_float(val);
 }
 
+/*
+
+vec text
+
+ */
+
+void test_vec_text() WASM_EXPORT("canister_update test_vec_text");
+void test_vec_text() {
+  vector val= ic_reads_vec_text(val);
+  ic_writes_vec_text(val);
+}

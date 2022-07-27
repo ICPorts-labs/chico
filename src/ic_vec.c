@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //#include "vector.h"
 #include "ic_vec.h"       
@@ -438,6 +439,69 @@ void ic_writes_vec_nat8(vector v){
     {
       uint8_t *val = vector_get(&v, i);
       write_byte(val[0]);
+    }
+  ic0_msg_reply();
+}
+
+//
+// vec of float
+//
+
+
+//
+// vec of text
+//
+
+vector ic_reads_vec_text(vector v){
+  vector_init(&v);
+  size_t len = (size_t)(ic0_msg_arg_data_size());
+  uint8_t *buf = (uint8_t *)(malloc(len));
+  ic0_msg_arg_data_copy((uint32_t)(buf), 0, (uint32_t)(len));
+  match_magic(buf, len);
+  match_byte(buf, len, 4, 0x01);
+  match_byte(buf, len, 5, IDL_TYPE_VEC);
+  match_byte(buf, len, 6, IDL_TYPE_TEXT);
+  match_byte(buf, len, 7, 0x01);
+  match_byte(buf, len, 8, 0x00);
+  uint32_t budget_var=1;
+  uint32_t *budget;
+  budget = &budget_var;
+  uint32_t vec_length= read_uleb128(buf,9,budget);
+  uint32_t offset= 9 + *budget;
+  uint32_t i=0;
+  for (i=0 ; i< vec_length; i=i+1) {
+    uint32_t index_budget_var=1;
+    uint32_t *index_budget;
+    index_budget = &index_budget_var;
+    uint32_t index_vec_length= read_uleb128(buf,offset,index_budget);
+    char *result= (char *)malloc(sizeof(char) * index_vec_length + 1);
+    offset = offset + *index_budget;
+    memcpy(result,&buf[offset],index_vec_length);
+    result[index_vec_length ]='\0';
+    offset = offset + index_vec_length;
+    vector_add(&v,result);
+  } 
+  free(buf);
+  return v;
+}
+
+
+void ic_writes_vec_text(vector v){
+  write_magic();
+  write_byte(0x01);
+  write_byte(IDL_TYPE_VEC);
+  write_byte(IDL_TYPE_TEXT);
+  write_byte(0x01);
+  write_byte(0x00);
+  write_uleb128(vector_total(&v));
+  int i =0;
+  for (i = 0; i < vector_total(&v); i++)
+    {
+      char *val = vector_get(&v, i);
+      write_uleb128(strlen(val));
+      for (int j =0; j < strlen(val) ; j = j+1) {
+	write_byte(val[j]);
+      }
     }
   ic0_msg_reply();
 }
